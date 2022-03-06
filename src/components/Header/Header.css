@@ -1,0 +1,17 @@
+.header-block {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin-bottom: 10px;
+}
+.header-block h1 {
+    margin: 0;
+    padding-right: 30px;
+    flex: none;
+    width: 5em;
+}
+.header-block__item {
+    background-color: #82d9c8;
+    border-radius: 10px;
+    width: 100%;
+}

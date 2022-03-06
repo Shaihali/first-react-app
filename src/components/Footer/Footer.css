@@ -1,0 +1,18 @@
+.footer-block {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+.footer-block div {
+    border-radius: 10PX;
+}
+.footer-block__date{
+    flex: none;
+    width: 7em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+}
