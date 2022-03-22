@@ -24,7 +24,6 @@ export const SideBar = () => {
     return (
         <aside className="aside-block">
             <h3>{asideObj.title}</h3>
-            <input type={asideObj.input.type} placeholder={asideObj.input.placeholder}></input>
             <nav className="nav-block">
                 <ul className="nav-block__list">
                     <li><a href={asideObj.link1.href}>{asideObj.link1.title}</a></li>

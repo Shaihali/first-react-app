@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 50px;
+    margin-top: 50px;
 }
 .footer-block div {
     border-radius: 10PX;

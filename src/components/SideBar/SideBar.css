@@ -40,10 +40,3 @@
     width: 18px;
     height: 18px;
 }
-.aside-block input {
-    background-image: url("./search.svg");
-    background-repeat: no-repeat;
-    background-position: 150px;
-    background-size: 13px;
-    border-radius: 5px;
-}

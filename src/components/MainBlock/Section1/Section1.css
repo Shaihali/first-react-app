@@ -1,3 +1,22 @@
 .article-block {
     columns: 3;
 }
+.section-block__upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.find-block {
+    width: 185px;
+}
+.find-block input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid black;
+    outline: none;
+    padding-bottom: 5px;
+    background-image: url("../../SideBar/search.svg");
+    background-repeat: no-repeat;
+    background-position: 170px;
+    background-size: 13px;
+}

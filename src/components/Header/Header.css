@@ -14,4 +14,7 @@
     background-color: #82d9c8;
     border-radius: 10px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
