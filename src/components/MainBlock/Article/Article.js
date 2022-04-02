@@ -4,11 +4,9 @@ import "./Article.css"
 import { useState } from 'react'
 
 
-export const Article = ({img, width, height, title, text}) => {
+export const Article = ({img, width, height, title, text, like, liked}) => {
 
-    const [liked, setLike] = useState(true)
-    const color = liked ? "#000" : "#ff2400"
-    const changeLike = () => setLike(!liked)
+    const customFilling = liked ? "crimson" : "black"
 
     return (
         <article>
@@ -20,7 +18,7 @@ export const Article = ({img, width, height, title, text}) => {
                 ...<button>Подробнее</button>
             </>
             ) : text}</p>
-                <Icons color={color} btn={changeLike}/>
+                <Icons color={customFilling} like={like}/>
         </article>
     )
     

@@ -1,18 +1,33 @@
 .aside-block {
-    background-color: #82d9c8;
-    padding: 10px;
-    height: 300px;
+    background-color: #31423f;
+    width: 260px;
+    height: 700px;
+    position: relative;
 }
-.aside-block h3 {
+.aside-block__image {
+    position: relative;
+    background-image: url("https://funart.pro/uploads/posts/2020-04/1587233042_4-p-foni-dlya-avatarki-na-youtube-15.jpg");
+    background-size: 100% 100%;
+    height: 180px;
+    width: 100%;
+    
+}
+.aside-block__image h3 {
+    position: absolute;
+    bottom: 0;
     margin: 0;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
 }
 .nav-block a {
     text-decoration: none;
     display: flex;
+    color: white;
 }
 .nav-block li {
     list-style-type: none;
+    border-bottom: 1px solid white;
 }
 .nav-block ul {
     padding: 0;
@@ -25,7 +40,6 @@
     
 }
 .nav-block__list li:nth-child(1) {
-    background-color: #01b0ef;
     border-radius: 5px;
 }
 .nav-block__list li:nth-child(2) a:before {
@@ -39,4 +53,25 @@
     background-image: url("./settings.svg");
     width: 18px;
     height: 18px;
+}
+.avatar {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+   transform: translate(-50%, -50%);
+}
+.avatar__img {
+    border-radius: 50%;
+    width: 100%;
+}
+.aside-block__exit {
+    border: none;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
