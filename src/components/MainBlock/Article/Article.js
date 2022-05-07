@@ -2,9 +2,11 @@ import { Icons } from '../../Icons/Icons'
 import placeholder from '../Section1/placeholder.png'
 import "./Article.css"
 import { useState } from 'react'
+import { ReactComponent as TrashIcon } from "../../Icons/trash.svg"
+import { ReactComponent as EditPencil } from "../../Icons/edit.svg"
 
 
-export const Article = ({img, width, height, title, text, like, liked}) => {
+export const Article = ({img, width, height, title, text, like, liked, deletePost, selectPost}) => {
 
     const customFilling = liked ? "crimson" : "black"
 
@@ -18,7 +20,16 @@ export const Article = ({img, width, height, title, text, like, liked}) => {
                 ...<button>Подробнее</button>
             </>
             ) : text}</p>
+            <div className='action'>
                 <Icons color={customFilling} like={like}/>
+                <button className='deletePost' onClick={deletePost}>
+                    <TrashIcon/>
+                </button>
+                <button className='editPosts' onClick={selectPost}>
+                    <EditPencil/>
+                </button>
+            </div>
+                
         </article>
     )
     

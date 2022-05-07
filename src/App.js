@@ -10,7 +10,7 @@ import { Test2 } from './components/Test/Test2';
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loginIn")=== "true")
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loginIn") === "true")
   
   return (
     <div className='App'>

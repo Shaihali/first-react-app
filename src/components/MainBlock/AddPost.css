@@ -1,0 +1,27 @@
+.addPost {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border: 1px solid;
+    background-color: white;
+    z-index: 10;
+    flex-direction: column;
+    width: 250px;
+    height: 310px;
+    justify-content: space-between;
+    align-items: center;
+}
+.addPost__item{
+    display: flex;
+    flex-direction: column;
+}
+.addPost__item input, textarea {
+    border-radius: 6px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.addPost__btn {
+    margin-bottom: 5px;
+}

@@ -7,17 +7,15 @@ export const Form = ({setIsLoggedIn}) => {
     const passwordRef = useRef()
 
     const handleSubmit = () => {
-        
-
+       
         const userData = {
             login: loginRef.current.value,
             password: passwordRef.current.value
         }
 
         localStorage.setItem("loginIn", true)
-        setIsLoggedIn(true)
 
-        console.log(userData)
+        setIsLoggedIn(true)
     }
     
 

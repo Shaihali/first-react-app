@@ -1,0 +1,27 @@
+.editPost {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border: 1px solid;
+    background-color: white;
+    z-index: 10;
+    flex-direction: column;
+    width: 250px;
+    height: 360px;
+    justify-content: space-between;
+    align-items: center;
+}
+.editPost__item{
+    display: flex;
+    flex-direction: column;
+}
+.editPost__item input, textarea {
+    border-radius: 6px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.editPost__btn {
+    margin-bottom: 5px;
+}

@@ -1,3 +1,15 @@
 article img {
     border-radius: 5px;
 }
+svg#Capa_1 {
+    width: 24px;
+    height: 24px;
+}
+button {
+    border: none;
+    background-color: white;
+}
+article {
+    width: 360px;
+    height: 350px;
+}
