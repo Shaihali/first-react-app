@@ -1,12 +1,12 @@
 import { Icons } from '../../Icons/Icons'
-import placeholder from '../Section1/placeholder.png'
-import "./Article.css"
+import placeholder from '../ContentBlock/placeholder.png'
+import "./Post.css"
 import { useState } from 'react'
 import { ReactComponent as TrashIcon } from "../../Icons/trash.svg"
 import { ReactComponent as EditPencil } from "../../Icons/edit.svg"
 
 
-export const Article = ({img, width, height, title, text, like, liked, deletePost, selectPost}) => {
+export const Post = ({img, width, height, title, text, like, liked, deletePost, selectPost}) => {
 
     const customFilling = liked ? "crimson" : "black"
 

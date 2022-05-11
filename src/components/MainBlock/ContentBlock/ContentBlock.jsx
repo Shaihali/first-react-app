@@ -1,13 +1,13 @@
-import { Article } from '../Article/Article'
-import './Section1.css'
+import { Post } from '../Post/Post'
+import './ContentBlock.css'
 import image from '../img/post_img.jpg'
 import { useState } from 'react'
-import { AddPost } from '../AddPost'
-import { EditForm } from '../EditForm'
+import { AddPost } from '../Post/AddPost/AddPost'
+import { EditForm } from '../Post/EditPost/EditForm'
 
 
 
-export const Section = () => {
+export const ContentBlock = () => {
 
     const articleObj = [
         {
@@ -59,7 +59,7 @@ export const Section = () => {
 
     const deletePost = (postTitle) => {
         const isDelete = window.confirm("Удалить пост?") 
-
+    
         if(isDelete) {
             const updatedPost = blogPost.filter((post) => {
                 return post.title !== postTitle
@@ -102,7 +102,7 @@ export const Section = () => {
                 {
                 blogPost.map((key, pos) => {
                     return (
-                        <Article  
+                        <Post  
                             img={key.img}
                             title={key.title} 
                             text={key.text} 

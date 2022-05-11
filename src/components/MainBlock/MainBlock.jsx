@@ -1,11 +1,11 @@
 import './MainBlock.css'
-import { Section } from './Section1/Section1'
+import { ContentBlock } from './ContentBlock/ContentBlock'
 
 export const MainBlock = () => {
   
   return (
     <main className="main-block">
-      <Section />
+      <ContentBlock />
     </main>
   )
 }
