@@ -17,3 +17,8 @@
     font-weight: 600;
     font-size: 25px;
 }
+
+.footer-block__item {
+    background: #01b0ef;
+    flex: 1;
+}
