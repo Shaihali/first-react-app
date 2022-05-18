@@ -7,42 +7,42 @@ import { EditForm } from '../Post/EditPost/EditForm'
 
 
 
-export const ContentBlock = () => {
+export const ContentBlock = ({posts, setPosts}) => {
 
-    const articleObj = [
-        {
-            img: image,
-            Liked: false,
-            title: "Title",
-            text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-            width: "250px",
-            height: "150px",
-            text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-        },
-        {
-            img: image,
-            Liked: false,
-            title: "Title 2",
-            text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-            width: "250px",
-            height: "150px",
-            text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-            },
-        {
-            // img: image,
-            Liked: false,
-            title: "Title 3",
-            text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-            width: "250px",
-            height: "150px",
-            text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-        },
-]
+//     const articleObj = [
+//         {
+//             img: image,
+//             Liked: false,
+//             title: "Title",
+//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
+//             width: "250px",
+//             height: "150px",
+//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
+//         },
+//         {
+//             img: image,
+//             Liked: false,
+//             title: "Title 2",
+//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
+//             width: "250px",
+//             height: "150px",
+//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
+//             },
+//         {
+//             // img: image,
+//             Liked: false,
+//             title: "Title 3",
+//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
+//             width: "250px",
+//             height: "150px",
+//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
+//         },
+// ]
 
     
     const [blogPost, setBlogPost] = useState(
-        JSON.parse(localStorage.getItem("blogPost")) || articleObj)
-
+        JSON.parse(localStorage.getItem("blogPost")) || posts)
+        
 
     const localStorageFunc = (updatedPost) => {
             localStorage.setItem("blogPost", JSON.stringify(updatedPost))
@@ -51,18 +51,18 @@ export const ContentBlock = () => {
     const likePost = (pos) => {
         const updatedPost = [...blogPost]
 
-        updatedPost[pos].Liked = !updatedPost[pos].Liked
+        updatedPost[pos].liked = !updatedPost[pos].liked
         
         localStorageFunc(updatedPost)
         setBlogPost(updatedPost)
     }
 
-    const deletePost = (postTitle) => {
+    const deletePost = (postId) => {
         const isDelete = window.confirm("Удалить пост?") 
     
         if(isDelete) {
             const updatedPost = blogPost.filter((post) => {
-                return post.title !== postTitle
+                return post.id !== postId
             })  
             localStorageFunc(updatedPost)
             setBlogPost(updatedPost)
@@ -103,16 +103,14 @@ export const ContentBlock = () => {
                 blogPost.map((key, pos) => {
                     return (
                         <Post  
-                            img={key.img}
+                            img={key.avatar}
                             title={key.title} 
-                            text={key.text} 
-                            height={key.height} 
-                            width={key.width}
-                            liked = {key.Liked}
+                            text={key.description} 
+                            liked = {key.liked}
                             like = {()=> likePost(pos)}
-                            deletePost = {() => deletePost(key.title)}
+                            deletePost = {() => deletePost(key.id)}
                             selectPost = {()=> selectPost(pos)}
-                            key={key.title}
+                            key={key.id}
                         />
                         )
                     })

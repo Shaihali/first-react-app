@@ -13,3 +13,11 @@ article {
     width: 360px;
     height: 350px;
 }
+.article-img {
+    width: 128px;
+    height: 128px;
+}
+.article-img img {
+    width: 100%;
+    height: 100%;
+}

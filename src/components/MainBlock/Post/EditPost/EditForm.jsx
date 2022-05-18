@@ -1,10 +1,22 @@
 import React, { useState } from 'react'
 import "./EditForm.css"
+import { useEffect } from 'react';
 
 export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost, localStorageFunc }) => {
 
     const [postTitle, setPostTitle] = useState(selectedPost.title)
-    const [postDesc, setPostDesc] = useState(selectedPost.text)
+    const [postDesc, setPostDesc] = useState(selectedPost.description)
+
+    useEffect(()=> {
+        
+        const handleEscape = (e) => {
+            if (e.key === "Escape") setShowEditPost(false)
+            }
+
+        window.addEventListener("keyup", handleEscape)
+
+        return () => window.removeEventListener("keyup", handleEscape)
+    })
 
     const handChangeTitlePost = (e) => {
         setPostTitle(e.target.value)
@@ -19,12 +31,12 @@ export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost,
         const updatedPost = {
             ...selectedPost,
             title: postTitle,
-            text: postDesc,
+            description: postDesc,
         }
         console.log(updatedPost)
 
         const updatePost = blogPost.map((post) => {
-            if(post.title === updatedPost.title) return updatedPost
+            if(post.id === updatedPost.id) return updatedPost
             return post
         })
         setBlogPost(updatePost)

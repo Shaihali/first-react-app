@@ -18,11 +18,10 @@ export const AddPost = ( {setShowAddNewPost, blogPost, setBlogPost, localStorage
         e.preventDefault()
 
         const newPost = {
+            id: blogPost.length + 1,
             title: postTitle,
-            text: postDesc,
-            Liked: false,
-            width: "250px",
-            height: "150px",
+            description: postDesc,
+            liked: false,
         }
 
         const updatedPost = [...blogPost, newPost]

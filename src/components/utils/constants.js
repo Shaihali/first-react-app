@@ -1,0 +1,1 @@
+export const POSTS_URL = "https://628547d33060bbd34747b187.mockapi.io/api/postServer/Posts"

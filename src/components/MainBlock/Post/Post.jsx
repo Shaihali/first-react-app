@@ -6,13 +6,15 @@ import { ReactComponent as TrashIcon } from "../../Icons/trash.svg"
 import { ReactComponent as EditPencil } from "../../Icons/edit.svg"
 
 
-export const Post = ({img, width, height, title, text, like, liked, deletePost, selectPost}) => {
+export const Post = ({img, title, text, like, liked, deletePost, selectPost}) => {
 
     const customFilling = liked ? "crimson" : "black"
 
     return (
         <article>
-            <img src={img ? img : placeholder} width={width} height={height}></img>
+            <div className="article-img">
+                <img  src={img ? img : placeholder}></img>
+            </div>
             <h3>{title}</h3>
             <p>{text.length > 150 ? (
             <>
