@@ -9,36 +9,6 @@ import { EditForm } from '../Post/EditPost/EditForm'
 
 export const ContentBlock = ({posts, setPosts}) => {
 
-//     const articleObj = [
-//         {
-//             img: image,
-//             Liked: false,
-//             title: "Title",
-//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-//             width: "250px",
-//             height: "150px",
-//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-//         },
-//         {
-//             img: image,
-//             Liked: false,
-//             title: "Title 2",
-//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-//             width: "250px",
-//             height: "150px",
-//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-//             },
-//         {
-//             // img: image,
-//             Liked: false,
-//             title: "Title 3",
-//             text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias est vitae cum, ea numquam error hic, rerum dolore maxime dolores sit voluptate iure aperiam qui deserunt tenetur iste reiciendis doloremque!",
-//             width: "250px",
-//             height: "150px",
-//             text2: "the ich the randon bra terranoba this teer muyer the ich the randon bra terranoba this teer muyer"
-//         },
-// ]
-
     
     const [blogPost, setBlogPost] = useState(
         JSON.parse(localStorage.getItem("blogPost")) || posts)
@@ -79,14 +49,12 @@ export const ContentBlock = ({posts, setPosts}) => {
     const [selectedPost, setSelectedPost] = useState({})
     const [showEditPost, setShowEditPost] = useState(false)
 
-
     const selectPost = (pos) => {
         setSelectedPost(blogPost[pos])
         setShowEditPost(true) 
     
     }
    
-    
     return (
         <section className="section-block">
             <div className="section-block__upper">
@@ -99,8 +67,8 @@ export const ContentBlock = ({posts, setPosts}) => {
                 </div>
             </div>
             <div className="article-block">
-                {
-                blogPost.map((key, pos) => {
+                { blogPost.map((key, pos) => {
+                    
                     return (
                         <Post  
                             img={key.avatar}
