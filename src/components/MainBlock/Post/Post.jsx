@@ -6,21 +6,27 @@ import { ReactComponent as LikeIcon } from "../../Icons/like.svg"
 import { POSTS_URL } from '../../utils/constants'
 
 
-export const Post = ({img, title, text, liked, deletePost, selectPost, posts}) => {
+export const Post = ({img, title, text, liked, deletePost, selectPost, posts, setBlogPost, blogPost}) => {
 
-    const like = (post) => {
+    const like = async (post) => {
        const updatedPost = {...post, liked: !post.liked}
 
-        fetch(POSTS_URL + post.id, {
+       const response = await fetch(POSTS_URL + post.id, {
            method: "PUT",
            headers: {
             'Content-Type': 'application/json'
            },
            body: JSON.stringify(updatedPost)
        })
-      
+       const updatePostFromServer = await response.json()
+       setBlogPost(blogPost.map(post => {
+           if(post.id === updatePostFromServer.id) {
+               return updatePostFromServer
+           }
+           return post
+       }))
+    
     }
-
 
 
     return (

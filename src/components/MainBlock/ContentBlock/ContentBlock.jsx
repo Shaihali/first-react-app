@@ -46,7 +46,7 @@ export const ContentBlock = ({posts, setPosts}) => {
         setShowEditPost(true) 
     }
 
-     
+     console.log(blogPost)
 
     return (
         <section className="section-block">
@@ -69,6 +69,8 @@ export const ContentBlock = ({posts, setPosts}) => {
                             text={key.description}
                             liked = {key.liked}
                             posts = {key}
+                            blogPost={blogPost}
+                            setBlogPost = {setBlogPost}
                             deletePost = {() => deletePost(key.id)}
                             selectPost = {()=> selectPost(pos)}
                             key={key.id}
