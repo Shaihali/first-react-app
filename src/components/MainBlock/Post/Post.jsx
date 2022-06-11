@@ -1,14 +1,27 @@
-import { Icons } from '../../Icons/Icons'
 import placeholder from '../ContentBlock/placeholder.png'
 import "./Post.css"
-import { useState } from 'react'
 import { ReactComponent as TrashIcon } from "../../Icons/trash.svg"
 import { ReactComponent as EditPencil } from "../../Icons/edit.svg"
+import { ReactComponent as LikeIcon } from "../../Icons/like.svg"
+import { POSTS_URL } from '../../utils/constants'
 
 
-export const Post = ({img, title, text, like, liked, deletePost, selectPost}) => {
+export const Post = ({img, title, text, liked, deletePost, selectPost, posts}) => {
 
-    const customFilling = liked ? "crimson" : "black"
+    const like = (post) => {
+       const updatedPost = {...post, liked: !post.liked}
+
+        fetch(POSTS_URL + post.id, {
+           method: "PUT",
+           headers: {
+            'Content-Type': 'application/json'
+           },
+           body: JSON.stringify(updatedPost)
+       })
+      
+    }
+
+
 
     return (
         <article>
@@ -22,15 +35,21 @@ export const Post = ({img, title, text, like, liked, deletePost, selectPost}) =>
                 ...<button>Подробнее</button>
             </>
             ) : text}</p>
-            <div className='action'>
-                <Icons color={customFilling} like={like}/>
-                <button className='deletePost' onClick={deletePost}>
-                    <TrashIcon/>
-                </button>
-                <button className='editPosts' onClick={selectPost}>
-                    <EditPencil/>
-                </button>
-            </div>
+           
+                    <div className='action'>
+                        <button className='likePost' 
+                                onClick={() => like(posts)}>
+                            <LikeIcon fill = {liked ? "red": "black"}/>
+                        </button>
+                        <button className='deletePost' onClick={deletePost}>
+                            <TrashIcon/>
+                        </button>
+                        <button className='editPosts' onClick={selectPost}>
+                            <EditPencil/>
+                        </button>
+                    </div>
+            
+            
                 
         </article>
     )

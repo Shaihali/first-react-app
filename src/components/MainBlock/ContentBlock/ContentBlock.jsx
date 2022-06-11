@@ -1,6 +1,5 @@
 import { Post } from '../Post/Post'
 import './ContentBlock.css'
-import image from '../img/post_img.jpg'
 import { useState } from 'react'
 import { AddPost } from '../Post/AddPost/AddPost'
 import { EditForm } from '../Post/EditPost/EditForm'
@@ -18,14 +17,7 @@ export const ContentBlock = ({posts, setPosts}) => {
             localStorage.setItem("blogPost", JSON.stringify(updatedPost))
         }
 
-    const likePost = (pos) => {
-        const updatedPost = [...blogPost]
 
-        updatedPost[pos].liked = !updatedPost[pos].liked
-        
-        localStorageFunc(updatedPost)
-        setBlogPost(updatedPost)
-    }
 
     const deletePost = (postId) => {
         const isDelete = window.confirm("Удалить пост?") 
@@ -52,9 +44,10 @@ export const ContentBlock = ({posts, setPosts}) => {
     const selectPost = (pos) => {
         setSelectedPost(blogPost[pos])
         setShowEditPost(true) 
-    
     }
-   
+
+     
+
     return (
         <section className="section-block">
             <div className="section-block__upper">
@@ -73,9 +66,9 @@ export const ContentBlock = ({posts, setPosts}) => {
                         <Post  
                             img={key.avatar}
                             title={key.title} 
-                            text={key.description} 
+                            text={key.description}
                             liked = {key.liked}
-                            like = {()=> likePost(pos)}
+                            posts = {key}
                             deletePost = {() => deletePost(key.id)}
                             selectPost = {()=> selectPost(pos)}
                             key={key.id}

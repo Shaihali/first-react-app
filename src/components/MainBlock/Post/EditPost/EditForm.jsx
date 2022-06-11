@@ -33,13 +33,14 @@ export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost,
             title: postTitle,
             description: postDesc,
         }
-        
-
+    
         const updatePost = blogPost.map((post) => {
             if(post.id === updatedPost.id) return updatedPost
             return post
             
         })
+        
+
         setBlogPost(updatePost)
         localStorageFunc(updatePost)
         setShowEditPost(false)
