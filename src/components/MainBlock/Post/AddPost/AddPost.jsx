@@ -1,8 +1,10 @@
 import { useState } from "react"
 import "./AddPost.css"
+import { POSTS_URL } from '../../../utils/constants'
+import { useRef } from "react"
 
 
-export const AddPost = ( {setShowAddNewPost, blogPost, setBlogPost, localStorageFunc} ) => {
+export const AddPost = ( {setShowAddNewPost, blogPost, setBlogPost} ) => {
 
     const [postTitle, setPostTitle] = useState("")
     const [postDesc, setPostDesc] = useState("")
@@ -14,19 +16,32 @@ export const AddPost = ( {setShowAddNewPost, blogPost, setBlogPost, localStorage
         setPostDesc(e.target.value)
     }
 
-    const createPost = (e) => {
+
+
+
+    const createPost = async (e) => {
         e.preventDefault()
 
         const newPost = {
-            id: blogPost.length + 1,
             title: postTitle,
             description: postDesc,
             liked: false,
         }
 
-        const updatedPost = [...blogPost, newPost]
-        setBlogPost(updatedPost)
-        localStorageFunc(updatedPost)
+        const response = await fetch(POSTS_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newPost)
+        })
+        
+        if (response.ok) {
+            setBlogPost([...blogPost, await response.json()])
+        } else {
+            console.log(new Error(response.status))
+        }
+        
         setShowAddNewPost(false)
     }
 
@@ -46,7 +61,7 @@ export const AddPost = ( {setShowAddNewPost, blogPost, setBlogPost, localStorage
                         rows={10}
                         placeholder="Описание поста"
                         required 
-                        value={postDesc} 
+                        value={postDesc}
                         onChange={handChangeDescPost}>
                     </textarea>
                 </div>

@@ -25,6 +25,8 @@ export const Post = ({img, title, text, liked, deletePost, selectPost, posts, se
            }
            return post
        }))
+
+       console.log(updatePostFromServer)
     
     }
 

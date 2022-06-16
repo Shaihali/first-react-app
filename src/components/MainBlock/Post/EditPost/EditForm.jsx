@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "./EditForm.css"
 import { useEffect } from 'react';
 
-export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost, localStorageFunc }) => {
+export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost}) => {
 
     const [postTitle, setPostTitle] = useState(selectedPost.title)
     const [postDesc, setPostDesc] = useState(selectedPost.description)
@@ -42,7 +42,6 @@ export const EditForm = ({ setShowEditPost, selectedPost, blogPost, setBlogPost,
         
 
         setBlogPost(updatePost)
-        localStorageFunc(updatePost)
         setShowEditPost(false)
         
     }
